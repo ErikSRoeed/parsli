@@ -1,7 +1,7 @@
 
-#' Move a block in a slimmr SLiM model to a different index.
+#' Move a block in a parsli SLiM model to a different index.
 #'
-#' @description Moves a block in a slimmr SLiM model to a different index.
+#' @description Moves a block in a parsli SLiM model to a different index.
 #'
 #' @param slim_model An EidosModel object.
 #' @param from_index Original index of block.

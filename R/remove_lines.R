@@ -1,7 +1,7 @@
 
-#' Remove lines from a slimmr SLiM model.
+#' Remove lines from a parsli SLiM model.
 #'
-#' @description Removes one/more Eidos line(s) from a slimmr SLiM model.
+#' @description Removes one/more Eidos line(s) from a parsli SLiM model.
 #'
 #' @param slim_model An EidosModel object.
 #' @param line_indices Index/indices of line(s) to be removed.

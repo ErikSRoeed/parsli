@@ -1,7 +1,7 @@
 
 #' check_list_contains_only_correct_class
 #'
-#' @description Internal slimmr function.
+#' @description Internal parsli function.
 #'
 #' @param list A list() of objects.
 #' @param correct_class The desired class of the objects in list
@@ -23,7 +23,7 @@ check_list_contains_only_correct_class <- function(list, correct_class)
 
 #' parse_script
 #'
-#' @description Internal slimmr function.
+#' @description Internal parsli function.
 #'
 #' @param script_path Valid character path to a .slim script file.
 #' @param drop_empty_lines Boolean, default FALSE. Drop empty lines from script?
@@ -47,10 +47,10 @@ parse_script <- function(script_path, drop_empty_lines = FALSE)
 
 #' convert_script_to_eidoslines
 #'
-#' @description Internal slimmr function.
+#' @description Internal parsli function.
 #'
-#' @param script_lines char. vector of script lines from slimmr::parse_script().
-#' @returns A list() of slimmr::EidosLine objects.
+#' @param script_lines char. vector of script lines from parsli::parse_script().
+#' @returns A list() of parsli::EidosLine objects.
 #'
 #' @noRd
 #'
@@ -72,10 +72,10 @@ convert_script_to_eidoslines <- function(script_lines)
 
 #' group_eidoslines_in_eidosblocks
 #'
-#' @description Internal slimmr function.
+#' @description Internal parsli function.
 #'
-#' @param eidos_lines A list() of slimmr::EidosLine objects.
-#' @returns A list of slimmr::EidosBlock objects.
+#' @param eidos_lines A list() of parsli::EidosLine objects.
+#' @returns A list of parsli::EidosBlock objects.
 #'
 #' @noRd
 #'
@@ -132,9 +132,9 @@ group_eidoslines_in_eidosblocks <- function(eidos_lines)
 
 #' construct_eidosmodel_from_eidosblocks
 #'
-#' @description Internal slimmr function.
+#' @description Internal parsli function.
 #'
-#' @param eidos_blocks A list() of slimmr::EidosBlock objects.
+#' @param eidos_blocks A list() of parsli::EidosBlock objects.
 #' @returns An EidosModel object.
 #'
 #' @noRd
@@ -154,7 +154,7 @@ construct_eidosmodel_from_eidosblocks <- function(name, eidos_blocks)
 
 #' Check SLiM installation.
 #'
-#' @description Internal slimmr function. Attempt "slim -version". Stop if fail.
+#' @description Internal parsli function. Attempt "slim -version". Stop if fail.
 #'
 #' @param slim_command Full path to SLiM executable, or just "slim" if on PATH.
 #' @returns Void.

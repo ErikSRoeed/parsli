@@ -1,7 +1,7 @@
 
-#' Remove blocks from a slimmr SLiM model.
+#' Remove blocks from a parsli SLiM model.
 #'
-#' @description Removes one/more Eidos block(s) from a slimmr SLiM model.
+#' @description Removes one/more Eidos block(s) from a parsli SLiM model.
 #'
 #' @param slim_model An EidosModel object.
 #' @param block_indices Index/indices of block(s) to be removed.

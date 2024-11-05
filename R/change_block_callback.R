@@ -1,8 +1,8 @@
 
-#' Change the callback of a block in a slimmr SLiM model.
+#' Change the callback of a block in a parsli SLiM model.
 #'
-#' @description Changes the callback of one Eidos block in a slimmr SLiM model.
-#' A more convenient alternative to slimmr::replace_eidos_pattern for callback
+#' @description Changes the callback of one Eidos block in a parsli SLiM model.
+#' A more convenient alternative to parsli::replace_eidos_pattern for callback
 #' modification, but that function can be used to the same ends if you prefer.
 #'
 #' @param slim_model An EidosModel object.

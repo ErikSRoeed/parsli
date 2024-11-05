@@ -1,7 +1,7 @@
 
-#' Duplicates a block in a slimmr SLiM model.
+#' Duplicates a block in a parsli SLiM model.
 #'
-#' @description Duplicates one Eidos block in a slimmr SLiM model.
+#' @description Duplicates one Eidos block in a parsli SLiM model.
 #'
 #' @param slim_model An EidosModel object.
 #' @param block_index Integer index: block to duplicate.

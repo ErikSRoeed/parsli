@@ -1,9 +1,9 @@
 
 #' Import a SLiM model from an Eidos script.
 #'
-#' @description This function import a .slim script file and converts it to a
-#' slimmr EidosModel object. This object can be manipulated and run with the
-#' various functions of slimmr.
+#' @description This function imports a .slim script file and converts it to a
+#' parsli EidosModel object. This object can be manipulated and run with the
+#' various functions of parsli.
 #'
 #' @param script_path Path to .slim script.
 #' @param name A name for the model (defaults to script_path)

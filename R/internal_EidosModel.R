@@ -46,7 +46,7 @@ EidosModel <- R6::R6Class(
       }
 
       paste0(HEAD, NEWLINE) |> cat()
-      paste0(HEAD, "slimmr ", utils::packageVersion("slimmr"), NEWLINE) |> cat()
+      paste0(HEAD, "parsli ", utils::packageVersion("parsli"), NEWLINE) |> cat()
     },
 
     write_to_file = function(file_path, overwrite = FALSE)

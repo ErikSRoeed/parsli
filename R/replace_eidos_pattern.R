@@ -26,7 +26,7 @@ replace_eidos_pattern <- function(
 
   if (blocks_provided & lines_provided)
   {
-    stop("slimmr: Please specify at most one of in_blocks and in_lines.")
+    stop("parsli: Please specify at most one of in_blocks and in_lines.")
   }
 
   if (blocks_provided)

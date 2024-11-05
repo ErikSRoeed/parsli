@@ -1,7 +1,7 @@
 
-#' Add blocks to a slimmr SLiM model.
+#' Add blocks to a parsli SLiM model.
 #'
-#' @description Adds one/more Eidos blocks (in order) to a slimmr SLiM model.
+#' @description Adds one/more Eidos blocks (in order) to a parsli SLiM model.
 #'
 #' @param slim_model An EidosModel object.
 #' @param blocks_script A string of lines to add, e.g. from readLines().

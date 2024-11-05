@@ -1,7 +1,7 @@
 
-#' Branch (i.e. copy) a slimmr SLiM model.
+#' Branch (i.e. copy) a parsli SLiM model.
 #'
-#' @description Branches (copies) a slimmr SLiM model with all its components.
+#' @description Branches (copies) a parsli SLiM model with all its components.
 #'
 #' @param slim_model An EidosModel object.
 #' @param branch_name Name for the branched model.
