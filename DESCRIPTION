@@ -1,13 +1,13 @@
-Package: slimmr
+Package: parsli
 Type: Package
-Title: SLiM Models in R
+Title: A Parsimonious R-SLiM Interface
 Version: 1.0.0
 Date: 2024-01-13
 Authors@R: person("Erik Sandertun", "Roeed", email = "e.roeed@uq.net.au", role = c("aut", "cre"))
 Author: Erik Sandertun Roeed [aut, cre]
 Maintainer: Erik Sandertun Roeed <e.roeed@uq.net.au>
-Description: A minimalistic interface that runs and manipulates SLiM models in R.
-License: GPL-3
+Description: A minimalistic package to import, modularise, and run SLiM models with R.
+License: MIT
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 4.3), R6 (>= 2.5.1), parallel (>= 4.3), utils (>= 4.3)
