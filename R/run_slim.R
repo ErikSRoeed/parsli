@@ -41,9 +41,13 @@ run_slim <- function(
       ifelse(is.null(seed), "", paste("-s", seed)),
       sep = " "
     ),
-    paste(
-      "-d ", names(constants), "=", constants,
-      collapse = " ", sep = ""
+    ifelse(
+      length(constants > 0),
+      paste(
+        "-d ", names(constants), "=", constants,
+        collapse = " ", sep = ""
+      ),
+      ""
     ),
     paste(
       '"', temporary_script_path, '"',
