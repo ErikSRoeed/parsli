@@ -94,8 +94,36 @@ group_eidoslines_in_eidosblocks <- function(eidos_lines)
   current_block_number <- 1
   must_add_new_block <- FALSE
 
-  for (line in eidos_lines)
+  for (line_number in seq(length(eidos_lines)))
   {
+    line <- eidos_lines[[line_number]]
+
+    # Search for top level opening brackets on next non-empty line
+    nextline_iterator <- line_number
+    while (nextline_iterator < length(eidos_lines))
+    {
+      nextline_iterator <- nextline_iterator + 1
+      next_line <- eidos_lines[[nextline_iterator]]
+
+      if (! next_line$is_toplevel)
+      {
+        break
+      }
+
+      if (next_line$is_empty)
+      {
+        next
+      }
+
+      if (next_line$string == "{")
+      {
+        line$overwrite(paste(line$string, "{"))
+        next_line$overwrite("")
+      }
+
+      break
+    }
+
     possibly_add_new_block <- line$is_comment || line$is_callback
 
     if (possibly_add_new_block)
