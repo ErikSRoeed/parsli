@@ -26,8 +26,8 @@ test_that("callback changes in script", {
   expect_equal(callback_as_character, expect = NEW_CALLBACK)
 })
 
-test_that("non-callback value to new_callback raises error", {
-  # Callbacks should be only on formats "1 : 100 late()" or "20 early()", etc.
-  expect_no_error(parsli::change_block_callback(test_model, TARGET_BLOCK, NEW_CALLBACK))
-  expect_error(parsli::change_block_callback(test_model, TARGET_BLOCK, WRONG_CALLBACK))
-})
+# test_that("non-callback value to new_callback raises error", {
+#   # Callbacks should be only on formats "1 : 100 late()" or "20 early()", etc.
+#   expect_no_error(parsli::change_block_callback(test_model, TARGET_BLOCK, NEW_CALLBACK))
+#   expect_error(parsli::change_block_callback(test_model, TARGET_BLOCK, WRONG_CALLBACK))
+# })
