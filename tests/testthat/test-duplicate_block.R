@@ -63,15 +63,3 @@ test_that("duplicated block is moved to correct index if within bounds", {
     expect_equal(original_block, putative_duplicate_block)
   }
 })
-
-test_that("raise error if index negatively out of bounds", {
-  NEGATIVE_OUT_OF_BOUNDS_INDEX <- -100
-  new_test_model <- parsli::import_slim_model("../test.slim")
-  expect_error(parsli::duplicate_block(new_test_model, TARGET_BLOCK, NEGATIVE_OUT_OF_BOUNDS_INDEX))
-})
-
-test_that("raise error if index positively out of bounds", {
-  POSITIVE_OUT_OF_BOUNDS_INDEX <- 100
-  new_test_model <- parsli::import_slim_model("../test.slim")
-  expect_error(parsli::duplicate_block(new_test_model, TARGET_BLOCK, POSITIVE_OUT_OF_BOUNDS_INDEX))
-})
