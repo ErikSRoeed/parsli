@@ -1,11 +1,25 @@
 
 TARGET_BLOCK <- 4 # 1000 late()
+OUT_OF_BOUNDS_BLOCK <- 1000
 NEW_CALLBACK <- "500 late()"
 LINE_IN_SCRIPT <- 28
 WRONG_CALLBACK <- "abc()"
 
 test_model <- parsli::import_slim_model("../test.slim", name = "Test")
 test_model |> parsli::change_block_callback(TARGET_BLOCK, NEW_CALLBACK)
+
+test_that("out of bounds block index raises error", {
+  expect_error(parsli::change_block_callback(test_model, OUT_OF_BOUNDS_BLOCK, NEW_CALLBACK))
+  expect_error(parsli::change_block_callback(test_model, -OUT_OF_BOUNDS_BLOCK, NEW_CALLBACK))
+})
+
+test_that("within bounds block index raises no error", {
+  TICK_BLOCKS <- 3 : 6
+  for (allowed_index in TICK_BLOCKS)
+  {
+    expect_no_error(parsli::change_block_callback(test_model, allowed_index, NEW_CALLBACK))
+  }
+})
 
 test_that("callback changed at level of EidosBlock", {
   block_callback <- test_model$blocks[[TARGET_BLOCK]]$callback
