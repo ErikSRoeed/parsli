@@ -31,6 +31,7 @@ replace_eidos_pattern <- function(
 
   if (blocks_provided)
   {
+    stopifnot(slim_model$assert_items_exist(in_blocks))
     slim_model$substitute(pattern, replacement, in_blocks)
     return()
   }
