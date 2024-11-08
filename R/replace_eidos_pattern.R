@@ -38,6 +38,8 @@ replace_eidos_pattern <- function(
 
   if (lines_provided)
   {
+    stopifnot((in_lines %in% seq(length(slim_model$lines))))
+
     for (line in slim_model$lines[in_lines])
     {
       line$substitute(pattern, replacement)

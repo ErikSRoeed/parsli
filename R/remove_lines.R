@@ -10,6 +10,8 @@
 #'
 remove_lines <- function(slim_model, line_indices)
 {
+  stopifnot((line_indices %in% seq(length(slim_model$lines))))
+
   model_line_counter <- 0
 
   for (block in slim_model$blocks)
