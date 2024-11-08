@@ -1,10 +1,38 @@
 
 TARGET_BLOCK <- 6
+OUT_OF_BOUNDS_BLOCK <- 1000
 
 test_model <- parsli::import_slim_model("../test.slim", name = "Test")
 original_block_count <- test_model$block_count
 test_model |> parsli::duplicate_block(TARGET_BLOCK, TARGET_BLOCK)
 
+test_that("out of bounds block indices raises error", {
+  expect_error(parsli::duplicate_block(test_model, OUT_OF_BOUNDS_BLOCK, 0))
+  expect_error(parsli::duplicate_block(test_model, -OUT_OF_BOUNDS_BLOCK, 0))
+})
+
+test_that("out of bounds after_index raises error", {
+  expect_error(parsli::duplicate_block(test_model, TARGET_BLOCK, OUT_OF_BOUNDS_BLOCK))
+  expect_error(parsli::duplicate_block(test_model, TARGET_BLOCK, -OUT_OF_BOUNDS_BLOCK))
+})
+
+test_that("within bounds block indices and after_index raises no error", {
+  ALLOWED_BLOCK_INDICES <- 1 : 6
+  ALLOWED_AFTER_INDICES <- 0 : 6
+
+  for (allowed_index in ALLOWED_BLOCK_INDICES)
+  {
+    new_test_model <- parsli::import_slim_model("../test.slim")
+    expect_no_error(parsli::duplicate_block(new_test_model, allowed_index, 0))
+  }
+
+  for (allowed_index in ALLOWED_AFTER_INDICES)
+  {
+    new_test_model <- parsli::import_slim_model("../test.slim")
+    expect_no_error(parsli::duplicate_block(new_test_model, TARGET_BLOCK, allowed_index))
+  }
+
+})
 
 test_that("block is duplicated", {
   expect_equal(test_model$block_count, original_block_count + 1)
