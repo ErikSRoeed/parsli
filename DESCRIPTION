@@ -1,7 +1,7 @@
 Package: parsli
 Type: Package
 Title: A Parsimonious R-SLiM Interface
-Version: 1.0.0
+Version: 1.0.1
 Date: 2024-01-13
 Authors@R: person("Erik Sandertun", "Roeed", email = "e.roeed@uq.net.au", role = c("aut", "cre"))
 Author: Erik Sandertun Roeed [aut, cre]

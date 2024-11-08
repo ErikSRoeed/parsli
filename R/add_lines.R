@@ -11,6 +11,8 @@
 #'
 add_lines <- function(slim_model, lines, after_line)
 {
+  stopifnot(after_line %in% seq(0, length(slim_model$lines)))
+
   eidos_lines <- convert_script_to_eidoslines(lines)
 
   line_counter <- 0

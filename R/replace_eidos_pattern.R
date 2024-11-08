@@ -31,12 +31,15 @@ replace_eidos_pattern <- function(
 
   if (blocks_provided)
   {
+    stopifnot(slim_model$assert_items_exist(in_blocks))
     slim_model$substitute(pattern, replacement, in_blocks)
     return()
   }
 
   if (lines_provided)
   {
+    stopifnot((in_lines %in% seq(length(slim_model$lines))))
+
     for (line in slim_model$lines[in_lines])
     {
       line$substitute(pattern, replacement)

@@ -45,6 +45,37 @@ EidosComposition <- R6::R6Class(
           character(1)
         )
       return(as_character)
+    },
+
+    assert_items_exist = function(indices, allow_zero = FALSE)
+    {
+      allowed_indices <- self$item_indices
+
+      if (allow_zero)
+      {
+        allowed_indices <- c(0, allowed_indices)
+      }
+
+      if (! all(indices %in% allowed_indices))
+      {
+        return(FALSE)
+      }
+
+      return(TRUE)
+    }
+
+  ),
+
+  active = list(
+
+    item_indices = function()
+    {
+      item_count <- length(private$items)
+      if (item_count > 0)
+      {
+        return(seq(1, item_count))
+      }
+      return(NULL)
     }
 
   ),

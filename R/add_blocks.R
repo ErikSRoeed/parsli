@@ -11,6 +11,8 @@
 #'
 add_blocks <- function(slim_model, blocks_script = character(), after_block)
 {
+  stopifnot(slim_model$assert_items_exist(after_block, allow_zero = TRUE))
+
   new_blocks <- blocks_script |>
     convert_script_to_eidoslines() |>
     group_eidoslines_in_eidosblocks()
