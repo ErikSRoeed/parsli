@@ -49,6 +49,20 @@ EidosComposition <- R6::R6Class(
 
   ),
 
+  active = list(
+
+    item_indices = function()
+    {
+      item_count <- length(private$items)
+      if (item_count > 0)
+      {
+        return(seq(1, item_count))
+      }
+      return(NULL)
+    }
+
+  ),
+
   private = list(
 
     items = list()
