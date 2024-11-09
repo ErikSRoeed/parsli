@@ -40,3 +40,8 @@ test_that("block is moved and no blocks are added", {
   expect_equal(block_in_original_location, block_in_derived_location)
   expect_equal(new_test_model$block_count, test_model$block_count)
 })
+
+test_that("no side effects on other blocks", {
+  unchanged_model <- parsli::import_slim_model("../test.slim", name = "Test")
+  expect_equal(unchanged_model$blocks[-MOVE_FROM], test_model$blocks[-MOVE_AFTER])
+})
