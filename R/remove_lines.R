@@ -8,7 +8,7 @@
 #'
 #' @export
 #'
-remove_lines <- function(slim_model, line_indices)
+remove_lines <- function(slim_model, line_indices, .force = FALSE)
 {
   stopifnot((line_indices %in% seq(length(slim_model$lines))))
 
@@ -24,6 +24,11 @@ remove_lines <- function(slim_model, line_indices)
 
       if (model_line_counter %in% line_indices)
       {
+        if (! .force)
+        {
+          line_is_callback <- block$lines[[block_line_counter]]$is_callback
+          stopifnot(! line_is_callback)
+        }
         block$remove(block_line_counter)
         next
       }
