@@ -14,7 +14,7 @@ EidosBlock <- R6::R6Class(
 
     change_callback = function(new_callback)
     {
-      super$substitute(self$callback, new_callback)
+      super$substitute(self$callback, new_callback, .force = TRUE)
     }
 
   ),

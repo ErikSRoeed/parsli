@@ -15,5 +15,5 @@
 change_block_callback <- function(slim_model, block_index, new_callback)
 {
   stopifnot(slim_model$assert_items_exist(block_index))
-  slim_model$blocks[[block_index]]$change_callback(new_callback, .force = TRUE)
+  slim_model$blocks[[block_index]]$change_callback(new_callback)
 }
