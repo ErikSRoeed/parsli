@@ -35,7 +35,7 @@ test_that("correct lines are removed", {
     remove_lines <- scrambled_line_numbers[1 : i]
 
     modified_model <- parsli::branch_model(base_model, "Modified")
-    modified_model |> parsli::remove_lines(remove_lines)
+    modified_model |> parsli::remove_lines(remove_lines, .force = TRUE)
     modified_script <- actual_script[-remove_lines]
 
     expect_equal(modified_model$get_lines_as_character(), modified_script)
