@@ -21,9 +21,16 @@ EidosLine <- R6::R6Class(
       private$string_private <- new_string
     },
 
-    substitute = function(phrase, substitute)
+    substitute = function(phrase, substitute, .force = FALSE)
     {
       with_substitutions <- gsub(phrase, substitute, self$string, fixed = TRUE)
+
+      string_changed <- self$string != with_substitutions
+      if (string_changed && self$is_callback)
+      {
+        stopifnot(.force)
+      }
+
       self$overwrite(new_string = with_substitutions)
     },
 

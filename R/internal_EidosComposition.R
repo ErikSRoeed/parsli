@@ -29,11 +29,11 @@ EidosComposition <- R6::R6Class(
       private$items <- private$items[-item_index]
     },
 
-    substitute = function(phrase, substitute, in_items)
+    substitute = function(phrase, substitute, in_items, .force = FALSE)
     {
       for (item in private$items[in_items])
       {
-        item$substitute(phrase, substitute)
+        item$substitute(phrase, substitute, .force = .force)
       }
     },
 
