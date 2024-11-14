@@ -11,6 +11,9 @@
 #'
 duplicate_block <- function(slim_model, block_index, after_block)
 {
+  stopifnot(slim_model$assert_items_exist(block_index))
+  stopifnot(slim_model$assert_items_exist(after_block, allow_zero = TRUE))
+
   original_block <- slim_model$blocks[[block_index]]
 
   add_blocks(

@@ -10,5 +10,6 @@
 #'
 remove_blocks <- function(slim_model, block_indices)
 {
+  stopifnot(slim_model$assert_items_exist(block_indices))
   slim_model$remove(block_indices)
 }

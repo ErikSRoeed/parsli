@@ -18,7 +18,8 @@ replace_eidos_pattern <- function(
     pattern,
     replacement,
     in_blocks = NULL,
-    in_lines = NULL
+    in_lines = NULL,
+    .force = FALSE
 )
 {
   blocks_provided <- ! is.null(in_blocks)
@@ -31,18 +32,21 @@ replace_eidos_pattern <- function(
 
   if (blocks_provided)
   {
-    slim_model$substitute(pattern, replacement, in_blocks)
+    stopifnot(slim_model$assert_items_exist(in_blocks))
+    slim_model$substitute(pattern, replacement, in_blocks, .force = .force)
     return()
   }
 
   if (lines_provided)
   {
+    stopifnot((in_lines %in% seq(length(slim_model$lines))))
+
     for (line in slim_model$lines[in_lines])
     {
-      line$substitute(pattern, replacement)
+      line$substitute(pattern, replacement, .force = .force)
     }
     return()
   }
 
-  slim_model$substitute(pattern, replacement)
+  slim_model$substitute(pattern, replacement, .force = .force)
 }

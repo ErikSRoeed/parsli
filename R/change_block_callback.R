@@ -3,7 +3,8 @@
 #'
 #' @description Changes the callback of one Eidos block in a parsli SLiM model.
 #' A more convenient alternative to parsli::replace_eidos_pattern for callback
-#' modification, but that function can be used to the same ends if you prefer.
+#' modification, but that function can be used to the same ends if you prefer,
+#' by using the .force = TRUE argument.
 #'
 #' @param slim_model An EidosModel object.
 #' @param block_index Which block to change callback for?
@@ -13,5 +14,6 @@
 #'
 change_block_callback <- function(slim_model, block_index, new_callback)
 {
+  stopifnot(slim_model$assert_items_exist(block_index))
   slim_model$blocks[[block_index]]$change_callback(new_callback)
 }

@@ -11,6 +11,9 @@
 #'
 move_block <- function(slim_model, from_index, after_index)
 {
+  stopifnot(slim_model$assert_items_exist(from_index))
+  stopifnot(slim_model$assert_items_exist(after_index, allow_zero = TRUE))
+
   block <- slim_model$blocks[[from_index]]
 
   if (from_index <= after_index)
